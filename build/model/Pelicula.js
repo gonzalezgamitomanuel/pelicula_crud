@@ -42,10 +42,6 @@ class Pelicula {
         }
         this._numpers = numpers;
     }
-    /*
-    Si el método no puede hacer su trabajo levanta una excepción con throw
-    y se interrumpe su ejecución en ese punto
-    */
     diaganado() {
         let diaganado;
         diaganado = this._recauentrada * this._numpers + this._recauotros;
@@ -89,7 +85,7 @@ exports.Pelicula = Pelicula;
 const peliculaSchema = new mongoose_1.Schema({
     _nombre: {
         type: String,
-        unique: true // useCreateIndex: true en la conexión para que se cree el índice único
+        unique: true
     },
     _recauentrada: {
         type: Number,
@@ -105,5 +101,5 @@ const peliculaSchema = new mongoose_1.Schema({
         max: 30
     }
 });
-// La colección de la BD: vehiculos (Plural siempre)
+// La colección de la BD
 exports.Peliculas = mongoose_1.model('peliculas', peliculaSchema);

@@ -60,10 +60,7 @@ export class Pelicula{
         this._numpers = numpers
 
     }
-    /*
-    Si el método no puede hacer su trabajo levanta una excepción con throw
-    y se interrumpe su ejecución en ese punto
-    */
+    
 
     diaganado(){
         let diaganado: number
@@ -127,7 +124,7 @@ export type tPelicula = {
 const peliculaSchema = new Schema({
     _nombre: {
         type: String,
-        unique: true  // useCreateIndex: true en la conexión para que se cree el índice único
+        unique: true  
     },
     _recauentrada:{
         type: Number,
@@ -144,5 +141,5 @@ const peliculaSchema = new Schema({
     }
 })
 
-// La colección de la BD: vehiculos (Plural siempre)
+// La colección de la BD
 export const Peliculas = model('peliculas', peliculaSchema)

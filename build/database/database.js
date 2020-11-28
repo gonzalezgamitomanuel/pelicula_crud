@@ -23,7 +23,7 @@ class DataBase {
                     useNewUrlParser: true,
                     useUnifiedTopology: true,
                     useCreateIndex: true,
-                    useFindAndModify: false // para usar findOneAndDelete y findAndModify (comporbar true o false)
+                    useFindAndModify: false
                 })
                     .then(() => resolve(`Conectado a ${this._cadenaConexion}`))
                     .catch((error) => reject(`Error conectando a ${this._cadenaConexion}: ${error}`));

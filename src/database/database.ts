@@ -15,8 +15,8 @@ class DataBase {
             await mongoose.connect(this._cadenaConexion, {
                 useNewUrlParser: true, 
                 useUnifiedTopology: true, 
-                useCreateIndex: true,   // Para que cree el índice único asociado al campo unique
-                useFindAndModify: false  // para usar findOneAndDelete y findAndModify (comporbar true o false)
+                useCreateIndex: true,   
+                useFindAndModify: false  
             })
             .then( () => resolve(`Conectado a ${this._cadenaConexion}`) )
             .catch( (error) => reject(`Error conectando a ${this._cadenaConexion}: ${error}`) )     

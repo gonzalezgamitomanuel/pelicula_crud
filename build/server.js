@@ -18,7 +18,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     let query;
     let nombre, recauentrada, numdias, recauotros, gastos, sueldoempleado, numeroempleados, numpers;
     let pelicula = new Pelicula_1.Pelicula("", 0, 0, 0, 0, 0, 0);
-    yield setBD(false); //false BD Atlas
+    yield setBD(false);
     do {
         n = yield menu_1.menuPelicula();
         switch (n) {
@@ -142,8 +142,6 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
                 break;
             case 9:
                 yield database_1.db.conectarBD();
-                // Controlamos el error de validación
-                // Recordar que hay que poner la opción useFindAndModify: false
                 yield Pelicula_1.Peliculas.findOneAndUpdate({ _nombre: pelicula.nombre }, {
                     _nombre: pelicula.nombre,
                     _recauentrada: pelicula.recauentrada,
@@ -154,10 +152,10 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
                     _numeroempleados: pelicula.numeroempleados,
                     _numpers: pelicula.numpers
                 }, {
-                    runValidators: true // para que se ejecuten las validaciones del Schema
+                    runValidators: true
                 })
                     .then(() => console.log('Modificado Correctamente'))
-                    .catch((err) => console.log('Error: ' + err)); // concatenando con cadena muestra mensaje
+                    .catch((err) => console.log('Error: ' + err));
                 yield database_1.db.desconectarBD();
                 break;
             case 10:

@@ -11,7 +11,7 @@ const main = async () => {
     let pelicula: Pelicula = new Pelicula("",0,0,0,0,0,0)
 
 
-    await setBD(false) //false BD Atlas
+    await setBD(false) 
 
     do {
         n = await menuPelicula()
@@ -138,8 +138,7 @@ const main = async () => {
                 break
             case 9:
                 await db.conectarBD()
-                // Controlamos el error de validación
-                // Recordar que hay que poner la opción useFindAndModify: false
+                
                 await Peliculas.findOneAndUpdate( 
                     { _nombre: pelicula.nombre }, 
                     {
@@ -153,11 +152,11 @@ const main = async () => {
                         _numpers: pelicula.numpers
                     },
                     {
-                        runValidators: true // para que se ejecuten las validaciones del Schema
+                        runValidators: true 
                     }  
                 )                
                 .then(() => console.log('Modificado Correctamente') )
-                .catch( (err) => console.log('Error: '+err)) // concatenando con cadena muestra mensaje
+                .catch( (err) => console.log('Error: '+err)) 
                 await db.desconectarBD()
                 break
             case 10:
